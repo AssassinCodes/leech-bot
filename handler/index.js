@@ -44,9 +44,5 @@ module.exports = async (client) => {
         await client.guilds.cache.get("810215269062279212").commands.set(arrayOfSlashCommands);
     });
 
-    // mongoose
-    const { mongooseConnectionString } = require('../config.json')
-    if (!mongooseConnectionString) return;
-
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+    mongoose.connect(process.env.MONGO).then(() => console.log('Connected to mongodb'));
 };
