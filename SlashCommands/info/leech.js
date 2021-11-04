@@ -39,9 +39,14 @@ module.exports = {
             desc = interaction.options.getString("description");
             const row = new MessageActionRow();
             
-            if(!time.includes(":")) return interaction.deferUpdate();
+            if(!time.includes(":")) {
+                const embed = new MessageEmbed()
+                    .setColor('RED')
+                    .setDescription("Please use this format for posting a leech")
+                    .setImage("https://cdn.discordapp.com/attachments/848208084136624138/905917572044693554/unknown.png")
+                return interaction.followUp({ embeds: [embed], ephemeral: true });
+            };
             splitted = time.split(":");
-            
             time = `${parseInt(splitted[0]) + parseInt(splitted[1])/60}m`;
 
             if (spots > 3 || spots < 1 || isNaN(spots)) {
