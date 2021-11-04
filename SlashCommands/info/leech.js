@@ -38,6 +38,11 @@ module.exports = {
             time = interaction.options.getString("time");
             desc = interaction.options.getString("description");
             const row = new MessageActionRow();
+            
+            if(!time.includes(":")) return interaction.deferUpdate();
+            splitted = time.split(":");
+            
+            time = `${parseInt(splitted[0]) + parseInt(splitted[1])/60}m`;
 
             if (spots > 3 || spots < 1 || isNaN(spots)) {
                 return interaction.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Maximum number of spots is 3")] });
