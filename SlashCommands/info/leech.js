@@ -118,7 +118,10 @@ module.exports = {
                     );
                 })
                 .catch(console.log);
-            interaction.channel.send({ content: `<@&848196488453423114>, a new leech from ${interaction.user}` });
+            let leechrole = "@Leech";
+            if(interaction.guild.id === "810215269062279212") leechrole = "<@&848196488453423114>";
+            if(interaction.guild.id === "856632350674649108") leechrole = "<@&905125949115363339>";
+            interaction.channel.send({ content: `${leechrole}, a new leech from ${interaction.user}` });
         } catch {
             interaction.deferUpdate();
         }
