@@ -4,12 +4,12 @@ client.on("messageCreate", async (message) => {
     if (
         message.author.bot ||
         !message.guild ||
-        !message.content.toLowerCase().startsWith(client.config.prefix)
+        !message.content.toLowerCase().startsWith("!")
     )
         return;
 
     const [cmd, ...args] = message.content
-        .slice(client.config.prefix.length)
+        .slice("!".length)
         .trim()
         .split(/ +/g);
 
