@@ -33,7 +33,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
         try {
-            if (interaction.channel.id !== "848208084136624138") return interaction.followUp({ content: "You can only use this command in <#848208084136624138>" });
+            if (interaction.channel.id !== "848208084136624138" && interaction.channel.id !== "876115057359089675") return interaction.followUp({ content: "You can only use this command in The Leech channel" });
             spots = interaction.options.getNumber("spots");
             time = interaction.options.getString("time");
             desc = interaction.options.getString("description");
