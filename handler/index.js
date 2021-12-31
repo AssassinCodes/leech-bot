@@ -41,7 +41,9 @@ module.exports = async (client) => {
         arrayOfSlashCommands.push(file);
     });
     client.on("ready", async () => {
-        await client.guilds.cache.get("810215269062279212").commands.set(arrayOfSlashCommands);
+        //await client.guilds.cache.get("810215269062279212").commands.set(arrayOfSlashCommands);
+        
+        await client.application.commands.set(arrayOfSlashCommands);
     });
 
     mongoose.connect(process.env.MONGO).then(() => console.log('Connected to mongodb'));
